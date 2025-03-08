@@ -1,0 +1,33 @@
+{
+    "name": "top-movies-api",
+    "version": "1.0.0",
+    "description": "API for top 250 movies with authentication",
+    "main": "dist/index.js",
+    "scripts": {
+        "start": "node dist/index.js",
+        "dev": "nodemon src/index.ts",
+        "build": "tsc",
+        "seed": "ts-node src/config/seedData.ts",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "dependencies": {
+        "express": "^4.18.2",
+        "mongoose": "^8.0.0",
+        "cookie-parser": "^1.4.6",
+        "bcryptjs": "^2.4.3",
+        "jsonwebtoken": "^9.0.2",
+        "dotenv": "^16.3.1",
+        "cors": "^2.8.5"
+    },
+    "devDependencies": {
+        "@types/express": "^4.17.21",
+        "@types/cookie-parser": "^1.4.6",
+        "@types/bcryptjs": "^2.4.6",
+        "@types/jsonwebtoken": "^9.0.5",
+        "@types/cors": "^2.8.17",
+        "typescript": "^5.0.0",
+        "ts-node": "^10.9.1",
+        "nodemon": "^3.0.0",
+        "@types/node": "^20.0.0"
+    }
+}
