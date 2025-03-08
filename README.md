@@ -1,71 +1,41 @@
-# Top Movies API
+# Movie Ranking API
 
-این یک API برای دسترسی به لیست 250 فیلم برتر با قابلیت احراز هویت است.
+A RESTful API service for managing and retrieving ranked movie data.
 
-## نیازمندی‌ها
+## Features
 
--   Node.js v14 یا بالاتر
--   MongoDB
--   npm یا yarn
+- User authentication (register, login, logout)
+- Protected movie endpoints requiring authentication
+- Get all movies sorted by rank
+- Get movies by ID
+- Get movies within a specific rank range
+- Error handling and validation
+- CORS support
+- Secure cookie-based JWT authentication
 
-## نصب و راه‌اندازی
+## Tech Stack
 
-1. نصب وابستگی‌ها:
-
-```bash
-npm install
-```
-
-2. ایجاد فایل `.env` و تنظیم متغیرهای محیطی:
-
-```
-PORT=3000
-MONGODB_URI=mongodb://localhost:27017/top-movies
-JWT_SECRET=your-secret-key
-COOKIE_SECRET=your-cookie-secret
-```
-
-3. کامپایل پروژه:
-
-```bash
-npm run build
-```
-
-4. اضافه کردن داده‌های اولیه به دیتابیس:
-
-```bash
-npx ts-node src/config/seedData.ts
-```
-
-5. اجرای سرور:
-
-```bash
-npm start
-```
-
-برای اجرا در محیط توسعه:
-
-```bash
-npm run dev
-```
+- Node.js + Express
+- TypeScript
+- MongoDB + Mongoose
+- JSON Web Tokens (JWT)
+- Cookie Parser
+- CORS
 
 ## API Endpoints
 
-### احراز هویت
+### Authentication
 
--   `POST /api/auth/register` - ثبت‌نام کاربر جدید
--   `POST /api/auth/login` - ورود کاربر
--   `POST /api/auth/logout` - خروج کاربر
+- POST `/api/auth/register` - Register a new user
+- POST `/api/auth/login` - Login user
+- POST `/api/auth/logout` - Logout user
 
-### فیلم‌ها
+### Movies
 
--   `GET /api/movies` - دریافت تمام فیلم‌ها
--   `GET /api/movies/rank?start=1&limit=10` - دریافت فیلم‌ها بر اساس رتبه
--   `GET /api/movies/:id` - دریافت اطلاعات یک فیلم خاص
+- GET `/api/movies` - Get all movies (requires auth)
+- GET `/api/movies/rank?start=1&limit=10` - Get movies by rank range (requires auth)
+- GET `/api/movies/:id` - Get movie by ID (requires auth)
 
-## امنیت
+## Environment Variables
 
--   احراز هویت با JWT
--   ذخیره توکن در کوکی با تنظیمات `httpOnly`
--   CORS با تنظیمات امن
--   رمزنگاری پسورد با bcrypt
+Create a `.env` file in the root directory with the following variables:
